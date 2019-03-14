@@ -1,0 +1,75 @@
+==================GITHUB==========================
+
+:::::::Create local repo and central repo in our local system without internet:::::::
+
+1)  first create central repo by using below commands
+
+	mkdir demo.git    -----create a directory
+	cd demo.git       ----- goto demo.git directory
+	git init -bare    ---- create bare repo--it will initilizes empty bare repo
+
+2)  create local repo from central repo by using below commands
+
+	git clone demo.git/  localrepo -------create local repo
+	cd localrepo                   ------- go to localrepo
+	touch file                     -------- create file
+	git add file			------- add file to local repo
+        git commit -m "commit"		---- give the commit
+
+
+:::::::::::Create local repo and central repo :::::::::::::::
+
+1)create central repository in git hub website   
+
+		my repository name is   devalrajumahesh/jenkin
+
+2) create local repo by below commands
+
+	mkdir localrepo        ------- create local repository
+        cd localrepo           -------  goto local repo
+
+create a files for the name of Dockerfile and index.html 
+
+      vi Docker file 
+give the below entry      
+        FROM httpd
+COPY index.html /usr/local/apache2/htdocs/
+
+	vi index.html
+give the below entry    
+     for testing purpose 
+
+	git init -------create empty repo
+	git add Dockerfile index.html   -------add file to local repo
+        git commit -m "first commit" ---- give the commit
+ 
+3) set the environment variable 
+  
+	git config --global user.email "mailid"		--- give the email
+	git config --global user.name  "username"	--- givbe the username
+	git config --list				--- list the environment variable
+	git log --pretty=oneline			--- it shows the commit
+
+4) login into remote repository
+	
+	git remote add origin git@github.com:devalrajumahesh/jenkin.git     ----- to connect to github
+
+	git pull origin master (or) git pull origin master --allow-unrelated-histories   -------pull the files from central repo
+
+	git push -u origin master   ----------push the files to github
+
+git push --force https://github.com/devalrajumahesh/petclinic  some time use this command 
+
+--------if any error will come regarding public key run below command----
+
+		git remote set-url origin https://github.com/devalrajumahesh/jenkin
+
+5) create branches
+
+	 git branch source(master)  target(develop)       -------create branch
+
+	 git checkout target(develop) 			  --------to switch to branch
+	
+	 git branch					  ------- to know the branch/current branch
+	
+	git push -u -a 					  --------to push all branches to remote
